@@ -35,9 +35,12 @@ const createNewPoint = () => (
 
 
 export default class NewPointView {
+  constructor(destination){
+    this.destination = destination;
+  }
 
   getTemplate() {
-    return createNewPoint();
+    return createNewPoint(this.destination);
   }
 
   getElement() {
