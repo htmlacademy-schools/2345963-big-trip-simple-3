@@ -23,7 +23,9 @@
     "node": "18"
   },
   "dependencies": {
-    "build": "0.1.4"
+    "build": "^0.1.4",
+    "build": "^0.1.4",
+    "dayjs": "^1.11.7"
   },
   "browserslist": [
     "last 2 versions",
