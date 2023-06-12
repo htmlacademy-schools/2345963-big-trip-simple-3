@@ -1,14 +1,16 @@
-import Presenter from './presenter.js';
+import BoardPresenter from './presenter/board-presenter.js';
+import { render } from './render.js';
 import FilterView from './view/filter-view.js';
-import { render } from './render';
-import PointsModel from './model/point_model.js';
+import SortView from './view/sort-view.js';
 
-const filterContainer = document.querySelector('.trip-controls__filters');
-const container = document.querySelector('.trip-events');
-render(new FilterView(), filterContainer);
+const filters = ['future', 'everything'];
+const sortTypes = ['day', 'event', 'time', 'price', 'offer'];
 
-/* const mainPage = document.querySelector('.page-body__page-main');*/
-const modelOfPoint = new PointsModel();
-const boardPresenter = new Presenter({container: container}, modelOfPoint);
+render(new FilterView(filters), document.querySelector('.trip-controls__filters'));
+render(new SortView(sortTypes), document.querySelector('.trip-events__sort'));
 
-boardPresenter.init(modelOfPoint);
+const tripPointsContainer = document.querySelector('.trip-events__list');
+const boardPresenter = new BoardPresenter({tripPointsContainer});
+
+boardPresenter.init();
+
