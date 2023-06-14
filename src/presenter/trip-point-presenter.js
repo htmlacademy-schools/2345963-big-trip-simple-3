@@ -76,4 +76,9 @@ export default class TripPointPresenter {
     remove(this.#eventFormView);
   }
 
+  removePoint() {
+    remove(this.#tripPointView);
+    remove(this.#eventFormView);
+  }
+
 }

@@ -74,7 +74,7 @@ export default class BoardPresenter {
     switch(this.#currentSortType) {
       case tripPointSortType.DAY:
         return [...BoardPresenter.#tripPointsModel.tripPoints].filter(this.#filterTripPoints).sort(BoardPresenter.#sortPointsByDay);
-        case tripPointSortType.PRICE:
+      case tripPointSortType.PRICE:
         return [...BoardPresenter.#tripPointsModel.tripPoints].filter(this.#filterTripPoints).sort(BoardPresenter.#sortPointsByPrice);
     }
     return BoardPresenter.#tripPointsModel.tripPoints;
