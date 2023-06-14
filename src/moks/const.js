@@ -40,4 +40,5 @@ const EventFormViewMode = {
   EDIT: 'EDIT'
 };
 
+
 export {EVENT_TYPES, FILTER_HEADERS, SORT_HEADERS, tripPointSortType, FilterType, UpdateType, UserAction, EventFormViewMode};
