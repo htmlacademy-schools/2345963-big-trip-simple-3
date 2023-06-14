@@ -2,7 +2,7 @@ import BoardPresenter from './board-presenter';
 import TripPointsView from '../view/trip-point-view';
 import EventFormView from '../view/event-form-view';
 import { remove, render, replace } from '../framework/render';
-import { UserAction, UpdateType, EventFormViewMode } from '../moks/const';
+import { UserAction, UpdateType, EventFormViewMode } from '../framework/utils/const';
 
 import 'flatpickr/dist/flatpickr.min.css';
 
@@ -119,19 +119,6 @@ export default class TripPointPresenter {
     this.#eventFormView = null;
   }
 
-  #cancelFormChanges = () => {
-    this.#eventFormView.reset(this.#point);
-    this.switchViewToItem();
-    document.body.removeEventListener('keydown', this.#onKeyDown);
-  };
-
-  #onKeyDown = (evt) => {
-    if (evt.key === 'Escape') {
-      evt.preventDefault();
-      this.#cancelFormChanges();
-    }
-  };
-
   setSaving = () => {
     if(this.mode === TripPointViewMode.FORM) {
       this.#eventFormView.setSaving();
@@ -154,4 +141,16 @@ export default class TripPointPresenter {
 
   };
 
+  #cancelFormChanges = () => {
+    this.#eventFormView.reset(this.#point);
+    this.switchViewToItem();
+    document.body.removeEventListener('keydown', this.#onKeyDown);
+  };
+
+  #onKeyDown = (evt) => {
+    if (evt.key === 'Escape') {
+      evt.preventDefault();
+      this.#cancelFormChanges();
+    }
+  };
 }
