@@ -1,5 +1,5 @@
 import AbstractView from '../framework/view/abstract-view';
-import { SORT_HEADERS, tripPointSortType } from '../moks/const';
+import { SORT_HEADERS } from '../moks/const';
 
 const createSortItemElement = (sortType) => `
   <div class="trip-sort__item  trip-sort__item--${sortType}">
@@ -34,19 +34,6 @@ export default class SortView extends AbstractView{
   get template() {
     return createSortElementTemplate(this.#sortTypes);
   }
-  setSortTypeChangeHandler = (callback) => {
-    this._callback.sortTypeChange = callback;
-    this.element.addEventListener('click', this.#sortTypeChangeHandler);
-  };
-
-  #sortTypeChangeHandler = (evt) => {
-    if(evt.target.tagName !== 'LABEL') {
-      return;
-    }
-
-    evt.preventDefault();
-    this._callback.sortTypeChange(evt.target.dataset.sortType);
-  };
 
   setSortTypeChangeHandler = (callback) => {
     this._callback.sortTypeChange = callback;
