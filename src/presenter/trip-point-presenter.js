@@ -71,10 +71,6 @@ export default class TripPointPresenter {
       this.#mode = TripPointViewMode.ITEM;
     }
   }
-  removePoint() {
-    remove(this.#tripPointView);
-    remove(this.#eventFormView);
-  }
 
   removePoint() {
     remove(this.#tripPointView);
