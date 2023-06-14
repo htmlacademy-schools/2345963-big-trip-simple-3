@@ -1,4 +1,4 @@
-import { UpdateType } from '../moks/const';
+import { UpdateType } from '../framework/utils/const';
 import Observable from '../framework/observable';
 
 export default class OffersModel extends Observable{
@@ -18,14 +18,15 @@ export default class OffersModel extends Observable{
   }
 
   init = async () => {
-
+    let res = true;
     try {
       this.#offersByType = await this.#tripPointApiService.getOffers();
     } catch(err) {
       this.#offersByType = [];
+      res = false;
     }
     this._notify(UpdateType.INIT);
-
+    return res;
   };
 
 }
